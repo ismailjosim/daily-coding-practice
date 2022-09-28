@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import './Aside.css';
 import './Aside.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
 
-
-    // Event Handler
     const handleBreakTime = (e) => {
         const btnText = e.target.innerText;
         const breakTime = parseInt(btnText.slice(0, -1));
         setBreakTime(breakTime);
-        const prevBreakTime = localStorage.getItem('breakTime');
-        const parsePrevBreakTime = JSON.parse(prevBreakTime);
-        if (parsePrevBreakTime) {
-            localStorage.setItem('breakTime', JSON.stringify(breakTime));
-            setBreakTime(parsePrevBreakTime);
-        }
     }
 
+    const notify = () => {
+        toast.success('Task Success!');
+    };
 
     return (
         <div className='col-span-1 bg-white'>
-            <div className='flex justify-around align-middle'>
+            <div className='flex justify-around align-middle bg-slate-200 rounded-md py-2'>
                 <div className="avatar">
                     <div className="w-20 rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt='person' />
                     </div>
                 </div>
-                <div>
-                    <h3>Ismail Josim</h3>
+                <div className='mt-1'>
+                    <h3 className='font-semibold'>Ismail Josim</h3>
+                    <p>Web Developer</p>
                     <p>Bhola, Bangladesh</p>
                 </div>
             </div>
@@ -62,7 +61,7 @@ const Aside = ({ taskAdd }) => {
                         </p>
                     </div>
                 </div>
-                <button className='btn text-white btn-info w-full my-5'>Task Completed</button>
+                <button onClick={notify} className='btn text-white btn-info w-full my-5'>Task Completed</button>
             </div>
 
         </div>
@@ -70,3 +69,18 @@ const Aside = ({ taskAdd }) => {
 };
 
 export default Aside;
+/*
+
+
+  const prevBreakTime = localStorage.getItem('breakTime');
+        const parsePrevBreakTime = JSON.parse(prevBreakTime);
+        if (parsePrevBreakTime) {
+            localStorage.setItem('breakTime', JSON.stringify(breakTime));
+            setBreakTime(parsePrevBreakTime);
+        }
+
+
+
+
+
+*/
