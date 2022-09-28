@@ -1,10 +1,10 @@
 import './App.css';
+import Home from './components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <h2>React Is Working</h2>
-      <button className="btn">Button</button>
+      <Home></Home>
     </div>
   );
 }
