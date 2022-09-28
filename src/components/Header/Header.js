@@ -16,8 +16,8 @@ const Header = ({ handleAddTask }) => {
     return (
         <div className='col-span-2 my-10'>
             <div>
-                <a className='font-bold flex' href="">
-                    <img className='w-14' src="./favicon.png" alt="coder logo" />
+                <a className='font-bold flex' href="index.html">
+                    <img className='w-14' src="./favicon.png" alt="coder" />
                     <p className='text-3xl font-bold mt-3'>Coder</p>
                 </a>
                 <div className='my-4'>

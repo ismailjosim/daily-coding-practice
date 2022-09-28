@@ -5,18 +5,27 @@ import './Aside.css';
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
 
+
     // Event Handler
     const handleBreakTime = (e) => {
         const btnText = e.target.innerText;
-        const btnNumber = parseInt(btnText.slice(0, -1));
-        setBreakTime(btnNumber);
+        const breakTime = parseInt(btnText.slice(0, -1));
+        setBreakTime(breakTime);
+        const prevBreakTime = localStorage.getItem('breakTime');
+        const parsePrevBreakTime = JSON.parse(prevBreakTime);
+        if (parsePrevBreakTime) {
+            localStorage.setItem('breakTime', JSON.stringify(breakTime));
+            setBreakTime(parsePrevBreakTime);
+        }
     }
+
+
     return (
         <div className='col-span-1 bg-white'>
             <div className='flex justify-around align-middle'>
                 <div className="avatar">
                     <div className="w-20 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" />
+                        <img src="https://placeimg.com/192/192/people" alt='person' />
                     </div>
                 </div>
                 <div>
@@ -38,6 +47,7 @@ const Aside = ({ taskAdd }) => {
                         <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">10m</button>
                         <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">15m</button>
                         <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">20m</button>
+                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">25m</button>
                         <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">30m</button>
                     </div>
                 </div>
