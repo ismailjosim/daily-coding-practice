@@ -21,4 +21,4 @@ const Tasks = ({ item, handleAddTask }) => {
 };
 
 export default Tasks;
-// {strInstructions > 300 ? strInstructions : strInstructions.slice(0, 250)
+
