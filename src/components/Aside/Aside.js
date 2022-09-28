@@ -6,12 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Aside = ({ taskAdd }) => {
-    const [breakTime, setBreakTime] = useState(0);
+    const [breakTime, setBreakTime] = useState([]);
 
     const handleBreakTime = (e) => {
         const btnText = e.target.innerText;
-        const breakTime = parseInt(btnText.slice(0, -1));
-        setBreakTime(breakTime);
+        const ParseTime = parseInt(btnText.slice(0, -1));
+        setBreakTime(ParseTime);
     }
 
     const notify = () => {
