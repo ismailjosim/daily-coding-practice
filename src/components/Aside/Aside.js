@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Aside.css';
 import './Aside.css';
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,11 +8,24 @@ const notify = () => toast.success('Task Complete!');
 
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
-    const handleBreakTime = (e) => {
-        const btnText = e.target.innerText;
+
+
+    // Break Time Handle function
+    const handleBreakTime = (event) => {
+        const btnText = event.target.innerText;
         const ParseTime = parseInt(btnText.slice(0, -1));
+        localStorage.setItem('breakTime', ParseTime);
         setBreakTime(ParseTime);
     }
+
+    // Get Item From Local Storage
+    useEffect(() => {
+        const getBreakTime = localStorage.getItem('breakTime');
+        if (getBreakTime) {
+            setBreakTime(getBreakTime);
+        }
+
+    }, [])
 
 
     return (
@@ -40,11 +53,11 @@ const Aside = ({ taskAdd }) => {
                 <div>
                     <h3 className='text-xl font-semibold my-3 text-left'>Add A Break</h3>
                     <div className='flex justify-center gap-3 py-3 bg-slate-200 rounded-md'>
-                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">10m</button>
-                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">15m</button>
-                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">20m</button>
-                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">25m</button>
-                        <button onClick={(e) => handleBreakTime(e)} className="btn btn_custom btn-outline btn-info btn-circle">30m</button>
+                        <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">10m</button>
+                        <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">15m</button>
+                        <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">20m</button>
+                        <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">25m</button>
+                        <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">30m</button>
                     </div>
                 </div>
                 <div>
