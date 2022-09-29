@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Aside.css';
 import './Aside.css';
 import { toast } from 'react-toastify';
@@ -6,13 +6,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Aside = ({ taskAdd }) => {
-    const [breakTime, setBreakTime] = useState([]);
+    const [breakTime, setBreakTime] = useState(0);
 
     const handleBreakTime = (e) => {
         const btnText = e.target.innerText;
         const ParseTime = parseInt(btnText.slice(0, -1));
         setBreakTime(ParseTime);
     }
+    useEffect(() => {
+        //get the shopping cart from local storage
+        const storedCart = localStorage.getItem('breakTime');
+        const storeCart = JSON.parse(breakTime);
+        if (storedCart) {
+            setBreakTime(storeCart);
+        } else {
+            localStorage.setItem('breakTime', storeCart)
+        }
+
+    }, [breakTime])
 
     const notify = () => {
         toast.success('Task Success!');
@@ -69,18 +80,3 @@ const Aside = ({ taskAdd }) => {
 };
 
 export default Aside;
-/*
-
-
-  const prevBreakTime = localStorage.getItem('breakTime');
-        const parsePrevBreakTime = JSON.parse(prevBreakTime);
-        if (parsePrevBreakTime) {
-            localStorage.setItem('breakTime', JSON.stringify(breakTime));
-            setBreakTime(parsePrevBreakTime);
-        }
-
-
-
-
-
-*/
