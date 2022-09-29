@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Aside from '../Aside/Aside';
 import Blog from '../Blog/Blog';
 import Header from '../Header/Header';
-import './Home.css';
 
 const Home = () => {
     const [taskAdd, setTaskAdd] = useState(0);

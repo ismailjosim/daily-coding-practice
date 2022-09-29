@@ -1,11 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Tasks from '../Tasks/Tasks';
-import './Header.css';
-
 
 const Header = ({ handleAddTask }) => {
     const [taskItems, setTaskItems] = useState([]);
+
     // Load data from json file
     useEffect(() => {
         fetch('activities-data.json')
@@ -35,4 +34,3 @@ const Header = ({ handleAddTask }) => {
 
 export default Header;
 
-// taskItems.map(task => <key = {task.id} task = { task }></key>
