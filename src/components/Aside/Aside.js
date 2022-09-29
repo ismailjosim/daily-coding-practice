@@ -3,12 +3,11 @@ import './Aside.css';
 import './Aside.css';
 import toast, { Toaster } from 'react-hot-toast';
 
-
+// Toaster Function
 const notify = () => toast.success('🎉Congratulation🎉 \n Your Task is Completed!');
 
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
-
 
     // Break Time Handle function
     const handleBreakTime = (event) => {
@@ -45,10 +44,10 @@ const Aside = ({ taskAdd }) => {
             <div>
                 <h3 className='text-xl font-bold my-3'>Previous Completed Task</h3>
                 <div>
-                    <p className='bg-slate-200 mb-3 text-md font-medium rounded-md py-2'>HTML</p>
-                    <p className='bg-slate-200 mb-3 text-md font-medium rounded-md py-2'>CSS</p>
-                    <p className='bg-slate-200 mb-3 text-md font-medium rounded-md py-2'>Tailwind CSS</p>
-                    <p className='bg-slate-200 mb-3 text-md font-medium rounded-md py-2'>JavaScript</p>
+                    <p className='bg-slate-200 hover:btn-info cursor-pointer hover:text-white mb-3 text-md font-medium rounded-md py-2'>HTML</p>
+                    <p className='bg-slate-200 hover:btn-info cursor-pointer hover:text-white mb-3 text-md font-medium rounded-md py-2'>CSS</p>
+                    <p className='bg-slate-200 hover:btn-info cursor-pointer hover:text-white mb-3 text-md font-medium rounded-md py-2'>Tailwind CSS</p>
+                    <p className='bg-slate-200 hover:btn-info cursor-pointer hover:text-white mb-3 text-md font-medium rounded-md py-2'>JavaScript</p>
                 </div>
                 <div>
                     <h3 className='text-xl font-semibold my-3 text-left'>Add A Break</h3>
@@ -60,6 +59,7 @@ const Aside = ({ taskAdd }) => {
                         <button onClick={(event) => handleBreakTime(event)} className="btn btn_custom btn-outline btn-info btn-circle">30m</button>
                     </div>
                 </div>
+
                 <div>
                     <h3 className='text-xl font-semibold my-3 text-left'>Task Details</h3>
                     <div className='py-3 bg-slate-200 rounded-md'>
