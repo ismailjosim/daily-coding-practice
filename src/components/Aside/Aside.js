@@ -4,7 +4,7 @@ import './Aside.css';
 import toast, { Toaster } from 'react-hot-toast';
 
 
-const notify = () => toast.success('Task Complete!');
+const notify = () => toast.success('🎉Congratulation🎉 \n Your Task is Completed!');
 
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
@@ -72,7 +72,7 @@ const Aside = ({ taskAdd }) => {
                     </div>
                 </div>
                 <button onClick={notify} className='btn text-white btn-info w-full my-5'>Task Completed</button>
-                <Toaster></Toaster>
+                <Toaster position="top-right" reverseOrder={false}></Toaster>
 
             </div>
 
