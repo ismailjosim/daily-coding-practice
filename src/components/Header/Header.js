@@ -16,8 +16,8 @@ const Header = ({ handleAddTask }) => {
         <div className='col-span-2 my-10'>
             <div>
                 <a className='font-bold flex justify-center sm:justify-start' href="index.html">
-                    <img className='w-14' src="./favicon.png" alt="coder" />
-                    <p className='text-3xl font-bold mt-3'>Coder</p>
+                    <img className='w-14 bg-slate-700 rounded-md' src="./favicon.png" alt="coder" />
+                    <p className='text-3xl font-bold mt-3 ml-2'>Coder</p>
                 </a>
                 <div className='my-4'>
                     <h3 className='text-2xl text-black font-semibold text-center sm:text-left'>Select Your Practice Task</h3>
