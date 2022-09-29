@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Aside.css';
 import './Aside.css';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 
+
+const notify = () => toast.success('Task Complete!');
 
 const Aside = ({ taskAdd }) => {
     const [breakTime, setBreakTime] = useState(0);
-
     const handleBreakTime = (e) => {
         const btnText = e.target.innerText;
         const ParseTime = parseInt(btnText.slice(0, -1));
         setBreakTime(ParseTime);
     }
-    useEffect(() => {
-        //get the shopping cart from local storage
-        const storedCart = localStorage.getItem('breakTime');
-        const storeCart = JSON.parse(breakTime);
-        if (storedCart) {
-            setBreakTime(storeCart);
-        } else {
-            localStorage.setItem('breakTime', storeCart)
-        }
 
-    }, [breakTime])
-
-    const notify = () => {
-        toast.success('Task Success!');
-    };
 
     return (
         <div className='col-span-1 bg-white'>
@@ -73,6 +59,8 @@ const Aside = ({ taskAdd }) => {
                     </div>
                 </div>
                 <button onClick={notify} className='btn text-white btn-info w-full my-5'>Task Completed</button>
+                <Toaster></Toaster>
+
             </div>
 
         </div>
