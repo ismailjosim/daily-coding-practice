@@ -23,9 +23,7 @@ const Aside = ({ taskAdd }) => {
         if (getBreakTime) {
             setBreakTime(getBreakTime);
         }
-
     }, [])
-
 
     return (
         <div className='col-span-1 bg-white'>
